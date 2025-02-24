@@ -1,57 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Código em JavaScript</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Código em JavaScript</h1>
+    <div class="container">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" placeholder="Digite seu nome"><br><br>
 
-    <!-- Campo para o nome -->
-    <section>
-        <div class="content">
-            <label for="name">Digite o seu nome:</label>
-            <input type="text" id="name" maxlength="100">
+        <label for="valor1">Valor do Produto 1 (R$):</label>
+        <input type="number" id="valor1" placeholder="Digite o valor"><br><br>
+
+        <label for="valor2">Valor do Produto 2 (R$):</label>
+        <input type="number" id="valor2" placeholder="Digite o valor"><br><br>
+
+        <label for="valor3">Valor do Produto 3 (R$):</label>
+        <input type="number" id="valor3" placeholder="Digite o valor"><br><br>
+
+        <button onclick="adicionarAoCarrinho()">Adicionar ao Carrinho</button>
+
+        <h2>Total da Compra: R$ <span id="total">0.00</span></h2>
+
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
         </div>
-    </section>
-
-    <!-- Inputs para adicionar produtos -->
-    <section>
-        <div class="content">
-            <label for="product1">Produto 1 (Preço):</label>
-            <input type="number" id="product1" placeholder="Digite o valor do Produto 1" step="0.01">
-            
-            <label for="product2">Produto 2 (Preço):</label>
-            <input type="number" id="product2" placeholder="Digite o valor do Produto 2" step="0.01">
-            
-            <label for="product3">Produto 3 (Preço):</label>
-            <input type="number" id="product3" placeholder="Digite o valor do Produto 3" step="0.01">
-            
-            <button id="addToCart">Adicionar ao Carrinho</button>
-        </div>
-    </section>
-
-    <!-- Exibição do total da compra -->
-    <section>
-        <div class="content">
-            <p id="totalAmount" style="color: white; font-size: 1.5em;">Total: R$ 0.00</p>
-        </div>
-    </section>
-
-    <!-- Notificação para inserir ao menos um produto -->
-    <div id="notification" class="notification" style="display: none;">
-        Por favor, adicione ao menos um produto ao carrinho!
+        <p class="completed" id="completedMessage">Compra concluída!</p>
     </div>
-
-    <!-- Gráfico de progressão da compra -->
-    <div id="progress-container">
-        <div id="progress-bar">0%</div>
-    </div>
-
-    <footer id="footer">Seu nome aparecerá aqui...</footer>
-
-    <script src="script.js"></script> <!-- Link para o JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

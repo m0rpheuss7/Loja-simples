@@ -1,64 +1,42 @@
-// Atualiza o rodapé com o nome digitado
-const nameInput = document.getElementById('name');
-const footer = document.getElementById('footer');
-nameInput.addEventListener('input', () => {
-    footer.textContent = nameInput.value || 'Seu nome aparecerá aqui...';
-});
+// script.js
+let totalCompra = 0;
+let progresso = 0;
+const limite = 100;
 
-// Seleção dos elementos da loja
-const addToCartButton = document.getElementById('addToCart');
-const totalAmount = document.getElementById('totalAmount');
-const notification = document.getElementById('notification');
-const progressContainer = document.getElementById('progress-container');
-const progressBar = document.getElementById('progress-bar');
-
-// Ao clicar em "Adicionar ao Carrinho"
-addToCartButton.addEventListener('click', () => {
-    // Se existir uma animação em andamento, limpa-a
-    if (window.progressInterval) {
-        clearInterval(window.progressInterval);
-    }
+function adicionarAoCarrinho() {
+    let valor1 = parseFloat(document.getElementById("valor1").value);
+    let valor2 = parseFloat(document.getElementById("valor2").value);
+    let valor3 = parseFloat(document.getElementById("valor3").value);
     
-    const product1 = parseFloat(document.getElementById('product1').value) || 0;
-    const product2 = parseFloat(document.getElementById('product2').value) || 0;
-    const product3 = parseFloat(document.getElementById('product3').value) || 0;
-
-    // Validação: se todos os produtos forem 0 ou nulos, exibe notificação
-    if (product1 === 0 && product2 === 0 && product3 === 0) {
-        notification.style.display = 'block'; 
-        setTimeout(() => {
-            notification.style.display = 'none'; 
-        }, 5000);
+    // Verificar se os valores são válidos
+    if (isNaN(valor1) || valor1 <= 0) {
+        alert("Por favor, insira um valor válido para o Produto 1!");
         return;
-    } else {
-        // Calcula e exibe o total da compra
-        const total = product1 + product2 + product3;
-        totalAmount.textContent = `Total: R$ ${total.toFixed(2)}`;
-        totalAmount.style.color = 'black';
+    }
+    if (isNaN(valor2) || valor2 <= 0) {
+        alert("Por favor, insira um valor válido para o Produto 2!");
+        return;
+    }
+    if (isNaN(valor3) || valor3 <= 0) {
+        alert("Por favor, insira um valor válido para o Produto 3!");
+        return;
     }
     
-    // Reseta e exibe o gráfico de progressão
-    progressBar.style.width = '0%';
-    progressBar.textContent = '0%';
-    progressBar.style.color = 'black';
-    progressContainer.style.display = 'block';
-    
-    // Inicia a animação da barra de progresso
-    animateProgressBar();
-});
+    totalCompra += valor1 + valor2 + valor3;  // Somar os valores
+    document.getElementById("total").innerText = totalCompra.toFixed(2);
+    iniciarProgresso();
+}
 
-// Função para animar o gráfico de progressão
-function animateProgressBar() {
-    let progress = 0;
-    window.progressInterval = setInterval(() => {
-        progress += 1;
-        progressBar.style.width = progress + '%';
-        progressBar.textContent = progress + '%';
-        if (progress >= 100) {
-            clearInterval(window.progressInterval);
-            // Exibe a mensagem de conclusão em verde claro
-            progressBar.textContent = "Compra concluída)))";
-            progressBar.style.color = '#90EE90';
+function iniciarProgresso() {
+    if (progresso >= limite) return;
+    
+    let intervalo = setInterval(() => {
+        if (progresso >= limite) {
+            clearInterval(intervalo);
+            document.getElementById("completedMessage").style.display = "block";
+            return;
         }
-    }, 100); // Incrementa 1% a cada 100 milissegundos
+        progresso += 1;
+        document.getElementById("progress").style.width = progresso + "%";
+    }, 100);
 }
