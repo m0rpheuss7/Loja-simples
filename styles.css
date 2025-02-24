@@ -3,45 +3,45 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: center;  /* Alinha verticalmente no centro */
+    align-items: center; /* Alinha verticalmente no centro */
     min-height: 100vh;
     padding: 20px;
-    flex-direction: column;  /* Organiza o conteúdo na direção vertical */
-}
-
-h1 {
+    flex-direction: column; /* Organiza o conteúdo na direção vertical */
+  }
+  
+  h1 {
     font-size: 2rem;
     color: #333;
     text-align: center;
     margin-bottom: 30px;
-    width: 100%;  /* Garantir que o título ocupe a largura total */
-}
-
-.container {
+    width: 100%; /* Garantir que o título ocupe a largura total */
+  }
+  
+  .container {
     width: 100%;
-    max-width: 500px;  /* Limita a largura do contêiner */
+    max-width: 500px; /* Limita a largura do contêiner */
     background-color: #fff;
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     text-align: left;
-}
-
-label {
+  }
+  
+  label {
     font-size: 1rem;
     color: #555;
     margin-bottom: 8px;
-}
-
-input[type="text"],
-input[type="number"] {
+  }
+  
+  input[type="text"],
+  input[type="number"] {
     width: 100%;
     padding: 12px;
     margin: 8px 0;
@@ -49,15 +49,15 @@ input[type="number"] {
     border-radius: 8px;
     font-size: 16px;
     transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus {
     border-color: #53096b;
     outline: none;
-}
-
-button {
+  }
+  
+  button {
     width: 100%;
     background-color: #22257e;
     color: white;
@@ -67,40 +67,51 @@ button {
     font-size: 16px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.2s ease;
-}
-
-button:hover {
+  }
+  
+  button:hover {
     background-color: #160543;
     transform: translateY(-2px);
-}
-
-button:active {
+  }
+  
+  button:active {
     transform: translateY(0);
-}
-
-h2 {
+  }
+  
+  h2 {
     margin-top: 20px;
     font-size: 1.2rem;
     color: #555;
-}
-
-.progress-bar {
+  }
+  
+  .progress-bar {
     width: 100%;
     background-color: #ddd;
     border-radius: 8px;
     height: 20px;
     margin-top: 20px;
     box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.progress {
+    position: relative;
+  }
+  
+  .progress {
     height: 100%;
-    width: 0;
+    width: 0%;
     background: linear-gradient(to right, #4c28a7, #130449);
-    transition: width 0.4s ease-in-out;
-}
-
-.completed {
+    transition: width 1.5s ease-in-out; /* Transição mais lenta */
+  }
+  
+  .progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    line-height: 20px;
+  }
+  
+  .completed {
     color: #28a745;
     font-size: 1.4rem;
     font-weight: bold;
@@ -108,37 +119,34 @@ h2 {
     display: none;
     text-align: center;
     animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
+  }
+  
+  @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-/* Media Query for responsiveness */
-@media (max-width: 600px) {
+  }
+  
+  /* Media Query for responsiveness */
+  @media (max-width: 600px) {
     .container {
-        padding: 20px;
+      padding: 20px;
     }
-
     h1 {
-        font-size: 1.5rem;
+      font-size: 1.5rem;
     }
-
     input[type="text"],
     input[type="number"],
     button {
-        padding: 10px;
+      padding: 10px;
     }
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #e0f7fa;  /* Novo fundo (azul claro) */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    flex-direction: column;
-}
+  }
+  
+  /* Estilo para o rodapé dinâmico */
+  #rodape {
+    font-size: 1.2rem;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+  }
+  

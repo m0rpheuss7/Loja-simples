@@ -1,42 +1,54 @@
 // script.js
-let totalCompra = 0;
-let progresso = 0;
-const limite = 100;
 
 function adicionarAoCarrinho() {
+    // 1. Obter os valores atuais dos inputs
     let valor1 = parseFloat(document.getElementById("valor1").value);
     let valor2 = parseFloat(document.getElementById("valor2").value);
     let valor3 = parseFloat(document.getElementById("valor3").value);
     
-    // Verificar se os valores são válidos
-    if (isNaN(valor1) || valor1 <= 0) {
+    // 2. Validar os inputs: cada valor deve ser um número válido (não nulo ou vazio)
+    if (valor1 === null || valor1 === "" || isNaN(valor1)) {
         alert("Por favor, insira um valor válido para o Produto 1!");
         return;
     }
-    if (isNaN(valor2) || valor2 <= 0) {
+    if (valor2 === null || valor2 === "" || isNaN(valor2)) {
         alert("Por favor, insira um valor válido para o Produto 2!");
         return;
     }
-    if (isNaN(valor3) || valor3 <= 0) {
+    if (valor3 === null || valor3 === "" || isNaN(valor3)) {
         alert("Por favor, insira um valor válido para o Produto 3!");
         return;
     }
     
-    totalCompra += valor1 + valor2 + valor3;  // Somar os valores
+    // 3. Recalcular o total com os valores atuais
+    let totalCompra = valor1 + valor2 + valor3;
     document.getElementById("total").innerText = totalCompra.toFixed(2);
-    iniciarProgresso();
+    
+    // 4. Fazer a barra de progresso voltar bruscamente pro final:
+    //    Aqui, em vez de animar o progresso, definimos a largura da barra imediatamente para 100%
+    document.getElementById("progress").style.width = "100%";
+    document.getElementById("completedMessage").style.display = "block";
 }
 
-function iniciarProgresso() {
-    if (progresso >= limite) return;
-    
-    let intervalo = setInterval(() => {
-        if (progresso >= limite) {
-            clearInterval(intervalo);
-            document.getElementById("completedMessage").style.display = "block";
-            return;
-        }
-        progresso += 1;
-        document.getElementById("progress").style.width = progresso + "%";
-    }, 100);
+// Função para exibir mensagem de boas-vindas
+function bemVindo() {
+    let nome = document.getElementById("nome").value;
+    if (nome.trim() !== "") {
+        alert("Bem-vindo, " + nome + "!");
+    } else {
+        alert("Por favor, insira seu nome.");
+    }
 }
+
+// Função para atualizar o rodapé com a mensagem "Bem-vindo, [nome]"
+function atualizarRodape() {
+    let nome = document.getElementById("nome").value.trim();
+    let rodape = document.getElementById("rodape");
+
+    rodape.innerText = nome ? `Bem-vindo, ${nome}` : "Bem-vindo, ";
+    rodape.style.fontWeight = "bold";
+    rodape.style.color = "blue";
+}
+
+// Adicionar evento para atualizar o rodapé dinamicamente enquanto o usuário digita
+document.getElementById("nome").addEventListener("input", atualizarRodape);
