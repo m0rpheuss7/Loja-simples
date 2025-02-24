@@ -1,0 +1,120 @@
+/* Estilos gerais */
+body {
+    background: linear-gradient(to bottom, #023e8c, #ffffff);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: left;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+section {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 15px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+}
+
+label {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+input[type="text"],
+input[type="number"],
+button {
+    padding: 8px;
+    font-size: 1em;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: rgb(216, 216, 89);
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #bfcf98;
+}
+
+footer {
+    position: fixed;
+    bottom: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 1.3em;
+    width: 100%;
+    text-align: center;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    z-index: 1000;
+    display: none;
+    width: auto;
+    max-width: 80%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para o gráfico de progressão */
+#progress-container {
+    background-color: #000000;
+    width: 100%;
+    max-width: 400px;
+    height: 30px;
+    margin: 20px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    display: none; /* Inicialmente oculto */
+}
+
+#progress-bar {
+    background-color: #FFD700;
+    height: 100%;
+    width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+    transition: width 0.1s linear;
+}

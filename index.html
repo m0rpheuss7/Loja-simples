@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Código em JavaScript</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
+</head>
+<body>
+    <h1>Código em JavaScript</h1>
+
+    <!-- Campo para o nome -->
+    <section>
+        <div class="content">
+            <label for="name">Digite o seu nome:</label>
+            <input type="text" id="name" maxlength="100">
+        </div>
+    </section>
+
+    <!-- Inputs para adicionar produtos -->
+    <section>
+        <div class="content">
+            <label for="product1">Produto 1 (Preço):</label>
+            <input type="number" id="product1" placeholder="Digite o valor do Produto 1" step="0.01">
+            
+            <label for="product2">Produto 2 (Preço):</label>
+            <input type="number" id="product2" placeholder="Digite o valor do Produto 2" step="0.01">
+            
+            <label for="product3">Produto 3 (Preço):</label>
+            <input type="number" id="product3" placeholder="Digite o valor do Produto 3" step="0.01">
+            
+            <button id="addToCart">Adicionar ao Carrinho</button>
+        </div>
+    </section>
+
+    <!-- Exibição do total da compra -->
+    <section>
+        <div class="content">
+            <p id="totalAmount" style="color: white; font-size: 1.5em;">Total: R$ 0.00</p>
+        </div>
+    </section>
+
+    <!-- Notificação para inserir ao menos um produto -->
+    <div id="notification" class="notification" style="display: none;">
+        Por favor, adicione ao menos um produto ao carrinho!
+    </div>
+
+    <!-- Gráfico de progressão da compra -->
+    <div id="progress-container">
+        <div id="progress-bar">0%</div>
+    </div>
+
+    <footer id="footer">Seu nome aparecerá aqui...</footer>
+
+    <script src="script.js"></script> <!-- Link para o JavaScript -->
+</body>
+</html>
